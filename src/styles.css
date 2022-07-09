@@ -11814,6 +11814,10 @@ body {
     margin-left: -225px;
 }
 
+.box-home{
+    margin-top: -410px;
+}
+
 .sb-sidenav-toggled #layoutSidenav #layoutSidenav_nav {
     transform: translateX(0);
 }
@@ -11866,7 +11870,7 @@ body {
 }
 .sb-nav-fixed #layoutSidenav #layoutSidenav_content {
     padding-left: 225px;
-    top: 56px;
+    top: 50px;
 }
 
 #layoutError {
