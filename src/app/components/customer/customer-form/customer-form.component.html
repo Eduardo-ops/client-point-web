@@ -3,18 +3,19 @@
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Cadastro</li>
     </ol>
-    <form>
+    <form #customerForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Id:</label>
-                    <input type="text" class="form-control" disabled="true">
+                    <input type="text" class="form-control" [ngModel]="customer.id" name="id" disabled="true">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Data de Registro:</label>
-                    <input type="text" class="form-control" disabled="true">
+                    <input type="text" class="form-control" [ngModel]="customer.registerDate" name="registerDate"
+                        disabled="true">
                 </div>
             </div>
         </div>
@@ -22,9 +23,9 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Nome: *</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" [(ngModel)]="customer.name" name="name">
                     <label>Cpf: *</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" [(ngModel)]="customer.cpf" name="cpf">
                 </div>
             </div>
         </div>

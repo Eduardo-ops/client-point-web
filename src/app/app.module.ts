@@ -9,6 +9,7 @@ import { SidebarComponent } from './components/template/sidebar/sidebar.componen
 import { FooterComponent } from './components/template/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CustomerFormComponent } from './components/customer/customer-form/customer-form.component'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CustomerFormComponent } from './components/customer/customer-form/custo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
