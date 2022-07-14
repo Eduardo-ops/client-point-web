@@ -1,6 +1,7 @@
 import { CustomerService } from './../customer.service';
 import { Component, OnInit } from '@angular/core';
 import { Customer } from '../customer';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-read',
@@ -11,7 +12,7 @@ export class CustomerReadComponent implements OnInit {
 
   customerArray: Customer[] = []
 
-  constructor(private customerService: CustomerService) { }
+  constructor(private customerService: CustomerService, private router: Router) { }
 
   ngOnInit(): void {
     this.customerService.readAllCustomer().subscribe(customers => {
@@ -19,10 +20,8 @@ export class CustomerReadComponent implements OnInit {
     })
   }
 
-  /* readAllCustomer() {
-    this.customerService.readAllCustomer().subscribe(customers => {
-      this.customer = customers
-    })
-  } */
+  newRegistration() {
+    this.router.navigate(['/customer-form'])
+  }
 
 }

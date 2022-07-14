@@ -20,4 +20,8 @@ export class CustomerService {
   readAllCustomer(): Observable<Customer[]> {
     return this.http.get<Customer[]>(this.apiUrl)
   }
+
+  readCustomerById(id: number): Observable<Customer> {
+    return this.http.get<Customer>(`this.apiUrl/${id}`)
+  }
 }
