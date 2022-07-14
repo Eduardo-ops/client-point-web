@@ -10,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class CustomerFormComponent implements OnInit {
 
   customer: Customer;
+  successRegistrationCustomer: boolean = false
+  registrationErrors: string[] = [];
 
   constructor(private customerService: CustomerService) {
     this.customer = new Customer()
@@ -20,7 +22,12 @@ export class CustomerFormComponent implements OnInit {
 
   createCustomer() {
     this.customerService.createCustomer(this.customer).subscribe(response => {
-      console.log(response)
+      this.registrationErrors = []
+      this.successRegistrationCustomer = true
+      this.customer = response
+    }, errorResponse => {
+      this.successRegistrationCustomer = false
+      this.registrationErrors = errorResponse.error.errors
     })
   }
 
