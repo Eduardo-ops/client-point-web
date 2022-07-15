@@ -1,1 +1,55 @@
-<p>customer-update works!</p>
+<div class="container-fluid px-4 box-home">
+    <h1 class="mt-4">Clientes</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Atualizar</li>
+    </ol>
+    <form #customerForm="ngForm" (ngSubmit)="updateCustomer()">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="successRegistrationCustomer == true">
+                    Cliente atualizado com sucesso!!!
+                </div>
+                <div class="alert alert-danger" role="alert" *ngFor="let error of registrationErrors">
+                    {{ error }}
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="customer.id">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Id:</label>
+                    <input type="text" class="form-control" [ngModel]="customer.id" name="id" disabled="true">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Data de Registro:</label>
+                    <input type="text" class="form-control" [ngModel]="customer.registerDate" name="registerDate"
+                        disabled="true">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Nome: *</label>
+                    <input type="text" class="form-control" [(ngModel)]="customer.name" name="name">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Cpf: *</label>
+                    <input type="text" class="form-control" [(ngModel)]="customer.cpf" name="cpf">
+                </div>
+            </div>
+        </div>
+        <div clas="row">
+            <div class="col-md-2 mt-4">
+                <button type="submit" class="btn btn-success btn-custom"><i class="fa fa-save"></i><span
+                        class="text-button">Salvar</span></button>
+                <button type="button" class="btn btn-primary btn-custom mx-3" (click)="backToListCustomer()"><i
+                        class="fa fa-arrow-alt-circle-left"></i><span class="text-button">Voltar</span></button>
+            </div>
+        </div>
+    </form>
+</div>

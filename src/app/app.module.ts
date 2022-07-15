@@ -11,6 +11,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { CustomerFormComponent } from './components/customer/customer-form/customer-form.component'
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomerReadComponent } from './components/customer/customer-read/customer-read.component';
+import { CustomerUpdateComponent } from './components/customer/customer-update/customer-update.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     SidebarComponent,
     FooterComponent,
     HomeComponent,
-    CustomerFormComponent
+    CustomerFormComponent,
+    CustomerReadComponent,
+    CustomerUpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -22,6 +22,11 @@ export class CustomerService {
   }
 
   readCustomerById(id: number): Observable<Customer> {
-    return this.http.get<Customer>(`this.apiUrl/${id}`)
+    return this.http.get<any>(`${this.apiUrl}/${id}`)
+  }
+
+  updateCustomer(customer: Customer): Observable<any> {
+    const urlCustomer = `${this.apiUrl}/${customer.id}`
+    return this.http.put<Customer>(urlCustomer, customer)
   }
 }
