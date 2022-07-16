@@ -4,6 +4,16 @@
         <li class="breadcrumb-item active">Consulta</li>
     </ol>
     <div class="row">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="messageSuccess">
+                    {{ messageSuccess }}
+                </div>
+                <div class="alert alert-danger" role="alert" *ngFor="let error of messageError">
+                    {{ error }}
+                </div>
+            </div>
+        </div>
         <div class="col-md-2">
             <button class="btn btn-primary btn-custom" (click)="newRegistration()"><i class="fa-solid fa-plus"></i><span
                     class="text-button">Cadastrar</span></button>
@@ -30,11 +40,32 @@
                             <button type="button" class="btn btn-secondary mx-3"
                                 routerLink="/customer-update-form/{{ customer.id }}"><i
                                     class="fa-solid fa-pen-to-square"></i></button>
-                            <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#deleteModal" (click)="preparingDeleteCustomer(customer)">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
                         </td>
                     </tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Confirmação para exclusão</h5>
+                </div>
+                <div class="modal-body" *ngIf="selectedCustomer">
+                    <p><strong>Nome: </strong>{{ selectedCustomer.name }}</p>
+                    <p><strong>Cpf: </strong>{{ selectedCustomer.cpf }}</p>
+                    <p><strong>Data de cadastro: </strong>{{ selectedCustomer.registerDate }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" (click)="deleteCustomer()" data-bs-dismiss="modal">Confirma</button>
+                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

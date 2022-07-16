@@ -29,4 +29,8 @@ export class CustomerService {
     const urlCustomer = `${this.apiUrl}/${customer.id}`
     return this.http.put<Customer>(urlCustomer, customer)
   }
+
+  deleteCustomer(customer: Customer): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${customer.id}`)
+  }
 }

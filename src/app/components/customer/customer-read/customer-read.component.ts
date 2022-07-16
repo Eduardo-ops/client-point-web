@@ -11,8 +11,13 @@ import { Router } from '@angular/router';
 export class CustomerReadComponent implements OnInit {
 
   customerArray: Customer[] = []
+  selectedCustomer: Customer
+  messageSuccess!: string
+  messageError!: string
 
-  constructor(private customerService: CustomerService, private router: Router) { }
+  constructor(private customerService: CustomerService, private router: Router) {
+    this.selectedCustomer = new Customer()
+  }
 
   ngOnInit(): void {
     this.customerService.readAllCustomer().subscribe(customers => {
@@ -24,4 +29,17 @@ export class CustomerReadComponent implements OnInit {
     this.router.navigate(['/customer-form'])
   }
 
+  preparingDeleteCustomer(customer: Customer) {
+    this.selectedCustomer = customer
+  }
+
+  deleteCustomer() {
+    this.customerService.deleteCustomer(this.selectedCustomer).subscribe(
+      response => {
+        this.messageSuccess = 'Cliente excluído com sucesso!',
+          this.ngOnInit()
+      },
+      error => this.messageError = 'Erro ao excluir cliente'
+    )
+  }
 }
