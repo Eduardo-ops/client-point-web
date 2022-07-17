@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CustomerFormComponent } from './components/customer/customer-form/customer-form.component';
-import { CustomerReadComponent } from './components/customer/customer-read/customer-read.component';
-import { CustomerUpdateComponent } from './components/customer/customer-update/customer-update.component';
 import { HomeComponent } from './pages/home/home.component';
+import { CustomerFormComponent } from './shared/components/customer/customer-form/customer-form.component';
+import { CustomerReadComponent } from './shared/components/customer/customer-read/customer-read.component';
+import { CustomerUpdateComponent } from './shared/components/customer/customer-update/customer-update.component';
 
 const routes: Routes = [
   {
